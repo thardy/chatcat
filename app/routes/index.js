@@ -34,7 +34,7 @@ module.exports = () => {
                 successRedirect: '/rooms',
                 failureRedirect: '/'
             }),
-            '/auth/google': passport.authenticate('google'),
+            '/auth/google': passport.authenticate('google', { scope : ['profile', 'email'] }),
             '/auth/google/callback': passport.authenticate('google', {
                 successRedirect: '/rooms',
                 failureRedirect: '/'

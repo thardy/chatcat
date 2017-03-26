@@ -16,6 +16,12 @@ if (process.env.NODE_ENV === 'production') {
             consumerSecret: process.env.twitterConsumerSecret,
             callbackURL: process.env.host + "/auth/twitter/callback",
             profileFields: ['id', 'displayName', 'photos']
+        },
+        google: {
+            clientID: process.env.googleClientID,
+            clientSecret: process.env.googleClientSecret,
+            callbackURL: process.env.host + "/auth/google/callback",
+            profileFields: ['id', 'displayName', 'photos']
         }
     };
 } else {

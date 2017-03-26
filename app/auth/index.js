@@ -4,7 +4,7 @@ const config = require('../config');
 const helper = require('../helpers');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
-const GoogleStrategy = require('passport-google').Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 module.exports = () => {
     passport.serializeUser((user, done) => {
@@ -38,5 +38,5 @@ module.exports = () => {
 
     passport.use(new FacebookStrategy(config.fb, authProcessor));
     passport.use(new TwitterStrategy(config.twitter, authProcessor));
-    //passport.use(new GoogleStrategy(config.fb));
+    passport.use(new GoogleStrategy(config.google, authProcessor));
 };
